@@ -1,0 +1,23 @@
+slam_toolbox:
+  ros__parameters:
+    # 기본 설정
+    odom_frame: odom
+    map_frame: map
+    base_frame: base_footprint
+    scan_topic: /scan
+    mode: mapping
+
+    # SLAM 성능 설정
+    resolution: 0.05
+    max_laser_range: 12.0
+    minimum_time_interval: 0.5
+    transform_timeout: 0.2
+    tf_buffer_duration: 30.0
+
+    # 루프 클로저
+    loop_search_maximum_distance: 3.0
+    do_loop_closing: true
+
+    # WAVE ROVER 팔 방향 필터링 (후방 차단)
+    angle_min: -2.356  # -135도
+    angle_max: 2.356   # +135도
