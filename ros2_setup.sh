@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "=== ROS2 Humble 자동 설치 스크립트 ==="
+echo "=== ROS2 Foxy 자동 설치 스크립트 ==="
 
 # 1. 시스템 업데이트
 sudo apt update && sudo apt upgrade -y
@@ -14,23 +14,23 @@ export LANG=en_US.UTF-8
 sudo apt install -y software-properties-common curl apt-transport-https ca-certificates
 sudo add-apt-repository universe -y
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key | gpg --dearmor | sudo tee /usr/share/keyrings/ros-archive-keyring.gpg > /dev/null
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu jammy main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu focal main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 # 4. ROS2 설치
 sudo apt update
-sudo apt install -y ros-humble-ros-base
+sudo apt install -y ros-foxy-ros-base
 
 # 5. 필수 패키지 설치
 sudo apt install -y python3-colcon-common-extensions python3-rosdep python3-argcomplete
-sudo apt install -y ros-humble-slam-toolbox ros-humble-nav2-bringup ros-humble-navigation2
-sudo apt install -y ros-humble-rplidar-ros
+sudo apt install -y ros-foxy-slam-toolbox ros-foxy-nav2-bringup ros-foxy-navigation2
+sudo apt install -y ros-foxy-rplidar-ros
 
 # 6. rosdep 초기화
 sudo rosdep init
 rosdep update
 
 # 7. 환경 설정
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
 echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
 
 # 8. 워크스페이스 생성
@@ -41,4 +41,4 @@ pip install pyserial
 
 echo "=== 설치 완료! ==="
 echo "이제 GitHub에서 코드를 clone 하세요."
-echo "cd ~/ros2_ws/src && git clone <your-repo>"
+echo "cd ~/ros2_ws/src && git clone https://github.com/sw107/wave_rover_ros2.git"
