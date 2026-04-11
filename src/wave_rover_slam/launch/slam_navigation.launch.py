@@ -1,4 +1,5 @@
 import os
+import xacro
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import DeclareLaunchArgument
@@ -21,8 +22,25 @@ def generate_launch_description():
         description='지도 yaml 파일 경로'
     )
 
+    # xacro 파일을 urdf 문자열로 변환
+    urdf_file = os.path.join(
+    get_package_share_directory('wave_rover_slam'),
+    'urdf',
+    'wave_rover.urdf.xacro'
+    )
+    robot_description = xacro.process_file(urdf_file).toxml()
+
     return LaunchDescription([
         declare_map_yaml_cmd,
+
+        # robot_state_publisher 노드
+        Node(
+            package='robot_state_publisher',
+            executable='robot_state_publisher',
+            name='robot_state_publisher',
+            parameters=[{'robot_description': robot_description}],
+            output='screen'
+        ),
 
         # RPLIDAR 노드
         Node(
