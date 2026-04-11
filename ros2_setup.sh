@@ -41,5 +41,3 @@ colcon build
 pip install pyserial
 
 echo "=== 설치 완료! ==="
-echo "이제 GitHub에서 코드를 clone 하세요."
-echo "cd ~/ros2_ws/src && git clone https://github.com/sw107/wave_rover_ros2.git"
