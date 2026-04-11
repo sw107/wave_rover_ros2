@@ -31,10 +31,11 @@ rosdep update
 
 # 7. 환경 설정
 echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
-echo "source ~/ros2_ws/install/setup.bash" >> ~/.bashrc
+echo "source ~/wave_rover_ros2/install/setup.bash" >> ~/.bashrc
 
-# 8. 워크스페이스 생성
-mkdir -p ~/ros2_ws/src
+# 8. 빌드
+cd ~/wave_rover_ros2
+colcon build
 
 # 9. pyserial 설치
 pip install pyserial
