@@ -45,7 +45,7 @@ def generate_launch_description():
         # RPLIDAR 노드
         Node(
             package='rplidar_ros',
-            executable='rplidar_composition',
+            executable='rplidar_node',
             name='rplidar',
             parameters=[{
                 'serial_port': '/dev/ttyUSB0',
