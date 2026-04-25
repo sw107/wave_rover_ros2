@@ -6,6 +6,7 @@ slam_toolbox:
     base_frame: base_footprint
     scan_topic: /scan
     mode: mapping
+    use_sim_time: false
 
     # SLAM 성능 설정
     resolution: 0.05
@@ -13,11 +14,21 @@ slam_toolbox:
     minimum_time_interval: 0.5
     transform_timeout: 0.2
     tf_buffer_duration: 30.0
+    map_update_interval: 5.0
 
     # 루프 클로저
     loop_search_maximum_distance: 3.0
     do_loop_closing: true
+    loop_match_minimum_chain_size: 10
+    loop_match_maximum_variance_coarse: 3.0
+    loop_match_minimum_response_coarse: 0.35
+    loop_match_minimum_response_fine: 0.45
 
-    # WAVE ROVER 팔 방향 필터링 (후방 차단)
-    angle_min: -2.356  # -135도
-    angle_max: 2.356   # +135도
+    # 스캔 매칭
+    distance_smear_deviation: 0.5
+    angle_smear_deviation: 0.436
+    smear_deviation_cost: 0.1
+
+    # WAVE ROVER 팔 방향 필터링 (후방 약 90도 차단)
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.175
