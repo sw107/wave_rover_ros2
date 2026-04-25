@@ -24,6 +24,7 @@ setup(
     entry_points={
         'console_scripts': [
             'wave_rover_bridge_node = wave_rover_bridge.wave_rover_bridge_node:main',
+            'odom_publisher = wave_rover_bridge.odom_publisher:main'
         ],
     },
 )
