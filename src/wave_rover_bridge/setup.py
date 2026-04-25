@@ -1,7 +1,5 @@
 from setuptools import find_packages, setup
-
 package_name = 'wave_rover_bridge'
-
 setup(
     name=package_name,
     version='0.0.0',
