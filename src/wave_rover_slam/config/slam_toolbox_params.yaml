@@ -29,6 +29,5 @@ slam_toolbox:
     angle_smear_deviation: 0.436
     smear_deviation_cost: 0.1
 
-    # WAVE ROVER 팔 방향 필터링 (후방 약 90도 차단)
     minimum_travel_distance: 0.1
     minimum_travel_heading: 0.175

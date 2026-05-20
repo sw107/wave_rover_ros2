@@ -41,6 +41,8 @@ def generate_launch_description():
                 'frame_id': 'laser',
                 'angle_compensate': True,
                 'scan_mode': 'Standard',
+                'angle_min': -1.92,
+                'angle_max': 1.92,
             }],
             output='screen'
         ),
@@ -59,6 +61,14 @@ def generate_launch_description():
             executable='async_slam_toolbox_node',
             name='slam_toolbox',
             parameters=[slam_params],
+            output='screen'
+        ),
+
+        # 오도메트리 노드
+        Node(
+            package='wave_rover_bridge',
+            executable='odom_publisher',
+            name='odom_publisher',
             output='screen'
         ),
     ])
