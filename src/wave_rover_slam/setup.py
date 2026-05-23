@@ -18,6 +18,8 @@ setup(
     install_requires=['setuptools'],
     zip_safe=True,
     entry_points={
-        'console_scripts': [],
+        'console_scripts': [
+            'scan_filter = wave_rover_slam.scan_filter:main',
+        ],
     },
 )

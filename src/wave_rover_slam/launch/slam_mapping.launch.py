@@ -41,9 +41,16 @@ def generate_launch_description():
                 'frame_id': 'laser',
                 'angle_compensate': True,
                 'scan_mode': 'Standard',
-                'angle_min': -1.92,
-                'angle_max': 1.92,
             }],
+            remappings=[('/scan', '/scan_raw')],
+            output='screen'
+        ),
+
+        # 스캔 필터 — 후방 140도 차단
+        Node(
+            package='wave_rover_slam',
+            executable='scan_filter',
+            name='scan_filter',
             output='screen'
         ),
 
