@@ -40,8 +40,9 @@ class WaveRoverBridge(Node):
         angular = msg.angular.z  # 좌/우 회전
         
         # 차동 구동 변환
-        left = linear - angular * 0.5
-        right = linear + angular * 0.5
+        TURNGAIN = 2.0 
+        left = linear - angular * TURNGAIN
+        right = linear + angular * TURNGAIN
         
         # -1.0 ~ 1.0 범위로 클램핑
         left = max(-1.0, min(1.0, left))
